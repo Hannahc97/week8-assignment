@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Planning
 
-## Getting Started
+## Database
+ - Start with the database
+ - Draw out your tables in words.
+ - Create the schema!
+ - Write the SQL to create your tables!
+ - Considerations: foreign/primary keys, data types...
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Wireframe
+- Lofi wireframes for each part of your app
+- Possibly design mobile first?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Break up your task into 20ish minute chunks, then have a little break 
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Lock in your MVP features early 
+- Rewrite the MVP features from teh assignment requirements?
+- What are the smallest building blocks of each different feature, start by implementing those! 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Main requirements
+- Routes! Static ones AND dynamic ones
+    - building blocks would be configuring your routes to match your plan
+- Rendering db data
+    - configure your DB connection
+    - Test your DB connection, seed? Postman?
+- Sending data to the db
+    - configure your DB connection
+    - Test your DB connection, seed? Postman?
+    - Create a very basic form with one input for testing 
