@@ -25,7 +25,7 @@ export default async function IdPage ({params}){
     const wrangledPostComment = postComment.rows
     console.log(wrangledPostComment)
 
-    
+
 
 
 
@@ -70,6 +70,7 @@ export default async function IdPage ({params}){
                     required
                     placeholder="Enter your name"
                     />
+                <button type="submit">Submit Comment</button>
             </form>
 
             {/* Display the individual form */}
