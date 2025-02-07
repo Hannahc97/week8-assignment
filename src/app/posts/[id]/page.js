@@ -1,4 +1,5 @@
 import { db } from "@/app/utils/dbConnection"
+import Link from "next/link";
 
 // Give your user some naviagtion controls
 // remember to add metadata for the page 
@@ -25,16 +26,22 @@ export default async function IdPage ({params}){
     const wrangledPostComment = postComment.rows
     console.log(wrangledPostComment)
 
-
-
-
+        async function handleSubmit (formValues){
+            const formData = {
+                comment: formValues.get("comment"),
+                author: formValues.get("author")
+            }
+            db.query(`INSERT INTO comments (comment, author, post_id)
+                    VALUES ($1, $2, $3)` [formData.comment, formData.author, postParams.id ])
+        }
 
     return (
         <>
+            <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link> | <Link href={"/new-post"}>Add Post</Link>
+            <br/>
             <h1> Dynamic route for individual post </h1>
-
             <h2> Param: {postParams.id} </h2>
-
+            <br/>
             {wrangledPost.map((item)=>(
                 <div key={item.id}>
                     <h3>Post Title: {item.post_title}</h3>
@@ -47,14 +54,13 @@ export default async function IdPage ({params}){
                     <h5>By: {item.author}</h5>
                     <br/>
                 </div>
-
             ))}
 
             <form>
-                <label>Comment: </label>
+                <label htmlFor="comment">Comment: </label>
                 <br/>
                 <textarea
-                    className="text-black m-px rounded-md"
+                    className="border-black text-black m-px rounded-md"
                     type="text"
                     name="comment"
                     id="comment"
@@ -62,15 +68,20 @@ export default async function IdPage ({params}){
                     placeholder="Enter your comment">
                 </textarea>
                 <br/>
-                <label>Author: </label>
+                <label htmlFor="author">Author: </label>
                 <input
+                    className="border-black"
                     type="text"
                     name="author"
                     id="author"
                     required
                     placeholder="Enter your name"
                     />
-                <button type="submit">Submit Comment</button>
+                <br/>
+                <button
+                    className="border-blue-400 border-8 m-2 hover:bg-blue-400 rounded-lg"
+                    type="submit">
+                    Submit Comment</button>
             </form>
 
             {/* Display the individual form */}

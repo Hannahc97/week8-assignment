@@ -11,7 +11,7 @@ export default async function PostsPage(){
     console.log(wrangledPosts)
     return (
         <>
-            <Link href={"/"}>Home</Link>
+            <Link href={"/"}>Home</Link> | <Link href={"/new-post"}>Add Post</Link>
             <h1>Posts Page</h1>
 
             {/* I need to get all posts from my database */}
