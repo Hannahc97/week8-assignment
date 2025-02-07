@@ -1,5 +1,8 @@
 import { db } from "@/app/utils/dbConnection"
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import { redirect } from "next/navigation"
+
 
 // Give your user some naviagtion controls
 // remember to add metadata for the page 
@@ -20,23 +23,27 @@ export default async function IdPage ({params}){
     console.log(wrangledPost)
 
     const postComment = await db.query(
-        `SELECT comments.comment, comments.author FROM posts
+        `SELECT comments.id, comments.comment, comments.author FROM posts
         JOIN comments ON comments.post_id = posts.id WHERE posts.id = $1`, [postParams.id])
     console.log(postComment)
     const wrangledPostComment = postComment.rows
     console.log(wrangledPostComment)
 
-        async function handleSubmit (formValues){
-            const formData = {
-                comment: formValues.get("comment"),
-                author: formValues.get("author")
-            }
-            db.query(`INSERT INTO comments (comment, author, post_id)
-                    VALUES ($1, $2, $3)` [formData.comment, formData.author, postParams.id ])
+    async function handleSubmit (formValues){
+        "use server"
+        const formData = {
+            comment: formValues.get("comment"),
+            author: formValues.get("author")
         }
+        db.query(`INSERT INTO comments (comment, author, post_id)
+                VALUES ($1, $2, $3)`, [formData.comment, formData.author, postParams.id])
+
+        revalidatePath(`/posts/${postParams.id}`)
+        redirect(`/posts/${[postParams.id]}`)
+    }
 
     return (
-        <>
+        <div>
             <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link> | <Link href={"/new-post"}>Add Post</Link>
             <br/>
             <h1> Dynamic route for individual post </h1>
@@ -48,15 +55,15 @@ export default async function IdPage ({params}){
                 </div>
             ))}
             <br/>
-            {wrangledPostComment.map((item)=> (
-                <div key={item.id}>
-                    <h4>{item.comment}</h4>
-                    <h5>By: {item.author}</h5>
+            {wrangledPostComment.map((commentItem)=> (
+                <div key={commentItem.id}>
+                    <h4>{commentItem.comment}</h4>
+                    <h5>By: {commentItem.author}</h5>
                     <br/>
                 </div>
             ))}
 
-            <form>
+            <form action={handleSubmit}>
                 <label htmlFor="comment">Comment: </label>
                 <br/>
                 <textarea
@@ -87,6 +94,6 @@ export default async function IdPage ({params}){
             {/* Display the individual form */}
             {/* Display any comments on the post */}
             {/* Need to display the comments form to capture the users comments  */}
-        </>
+        </div>
     )
 }
