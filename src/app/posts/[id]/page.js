@@ -22,6 +22,7 @@ export default async function IdPage ({params}){
     const wrangledPost = post.rows
     console.log(wrangledPost)
 
+    // need comment.id so it has a unique key to refer to when mapping the data
     const postComment = await db.query(
         `SELECT comments.id, comments.comment, comments.author FROM posts
         JOIN comments ON comments.post_id = posts.id WHERE posts.id = $1`, [postParams.id])
