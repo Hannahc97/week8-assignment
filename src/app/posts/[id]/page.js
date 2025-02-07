@@ -25,6 +25,8 @@ export default async function IdPage ({params}){
     const wrangledPostComment = postComment.rows
     console.log(wrangledPostComment)
 
+    
+
 
 
     return (
@@ -47,6 +49,28 @@ export default async function IdPage ({params}){
                 </div>
 
             ))}
+
+            <form>
+                <label>Comment: </label>
+                <br/>
+                <textarea
+                    className="text-black m-px rounded-md"
+                    type="text"
+                    name="comment"
+                    id="comment"
+                    required
+                    placeholder="Enter your comment">
+                </textarea>
+                <br/>
+                <label>Author: </label>
+                <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    required
+                    placeholder="Enter your name"
+                    />
+            </form>
 
             {/* Display the individual form */}
             {/* Display any comments on the post */}
