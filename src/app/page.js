@@ -5,7 +5,7 @@ import travel1 from "@/../public/assets/travel1.jpg"
 export default function HomePage () {
   return (
     <>
-      <h1 className="text-2xl mt-11 ml-6 mr-6 mb-5 p-2 text-pink-500 text-center">Hello and welcome to Travel and Thoughts! This is a travel blogging website where you can make a post about where you have travelled to or share any locations that other explorers would love to visit!</h1>
+      <h1 className="text-2xl mt-11 ml-6 mr-6 mb-5 p-2 text-pink-500 text-center">Hello and welcome to Travel and Thoughts! This is a travel blogging website where you can share a post about a place that you have travelled to, and would love for other explorers to visit! You can also comment on other posts and give tips or your experiences about that particular city. Happy exploring! </h1>
 
       <Image
         className="image"
