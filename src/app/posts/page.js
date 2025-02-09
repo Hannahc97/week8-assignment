@@ -5,7 +5,7 @@ import DeleteButton from "../components/DeleteButton"
 // remember to add metadata for the page 
 // We need to be able to sort the posts by asc and desc order. Query strings!
 
-export default async function PostsPage({searchParams, params}){
+export default async function PostsPage({searchParams}){
     const posts = await db.query(`SELECT * FROM posts`)
     console.log(posts)
 
@@ -23,9 +23,6 @@ export default async function PostsPage({searchParams, params}){
         })
     }
 
-    const id = await params
-    console.log(id)
-
     return (
         <>
             <div>
@@ -38,16 +35,20 @@ export default async function PostsPage({searchParams, params}){
                 {/* I need to render all of the posts */}
                 <br/>
 
-                {wrangledPosts.map((item) => (
-                    <div key={item.id}>
-                        <br/>
-                        <Link href={`/posts/${item.id}`}>
-                        <h2>{item.post_title}</h2>
-                        </Link>
-                        {/* <h2>{item.post_title}</h2> */}
-                        <DeleteButton postId={item.id}/>
-                    </div>
-                ))}
+                <div className="flex flex-col items-center justify-around ">
+                    {wrangledPosts.map((item) => (
+                        <div className="border-2 rounded-md m-6 p-10 border-black" 
+                        key={item.id}>
+                            <Link className="text-2xl font-bold hover:text-gray-500" 
+                            href={`/posts/${item.id}`}>
+                            <h2>{item.post_title}</h2>
+                            </Link>
+                            <div className="flex justify-center p-2"> 
+                            <DeleteButton postId={item.id}/>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     )

@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache"
 import { db } from "../utils/dbConnection"
 import { redirect } from "next/navigation"
-// import Link from "next/link"
+import "./create-posts.css" 
 
 
 
@@ -27,15 +27,14 @@ export default function NewPostPage() {
         <>
             {/* <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link> */}
 
-            <h1>A form to let the user add a New post</h1>
-
             {/* I need to write a form to collect user data */}
 
-            <form action={handleSubmit}>
-                <label htmlFor="post_title">Post: </label>
+            <div className="container">
+
+            <form className="form-container" action={handleSubmit}>
+                <label htmlFor="post_title">✈️ Post: </label>
                 <br/>
                 <input
-                    className="text-black m-px rounded-md"
                     type="text"
                     name="post_title"
                     id="post_title"
@@ -44,9 +43,9 @@ export default function NewPostPage() {
                 />
                 <br/>
                 <button
-                    className="border-blue-400 border-8 m-2 hover:bg-blue-400 rounded-lg" 
                     type="submit">Submit Post</button>
             </form>
+            </div>
         </>
     )
 }

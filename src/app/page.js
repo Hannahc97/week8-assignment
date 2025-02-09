@@ -1,12 +1,24 @@
-
+import Image from "next/image"
+import travel1 from "@/../public/assets/travel1.jpg"
 
 // import Link from "next/link"
 export default function HomePage () {
   return (
     <>
-      {/* <Link href={"/posts"}>Posts</Link> | <Link href={"/new-post"}>Add Post</Link> */}
+      <h1 className="text-2xl mt-11 ml-6 mr-6 mb-5 p-2 text-pink-500 text-center">Hello and welcome to Travel and Thoughts! This is a travel blogging website where you can make a post about where you have travelled to or share any locations that other explorers would love to visit!</h1>
 
-      <h1>Home page!</h1>
+      <Image
+        className="image"
+        src={travel1} 
+        alt={"a map"} 
+        width={800} 
+        height="fill"
+        // Knows it doesn't have to prioritise this image
+        // priotity tells next to either preload (true) or not (false)
+        priority="false"
+        // If image is too large we can have placeholder so user know there's something but still loading instead of empty space 
+        placeholder="blur"/> 
+
     </>
   )
 }

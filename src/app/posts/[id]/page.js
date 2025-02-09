@@ -2,6 +2,7 @@ import { db } from "@/app/utils/dbConnection"
 import { revalidatePath } from "next/cache";
 // import Link from "next/link";
 import { redirect } from "next/navigation"
+import "./idpage.css"
 
 
 // Give your user some naviagtion controls
@@ -47,28 +48,24 @@ export default async function IdPage ({params}){
         <div>
 
             <br/>
-            <h1> Dynamic route for individual post </h1>
-            <h2> Param: {postParams.id} </h2>
+
+            
+
+            {/* <h2> Param: {postParams.id} </h2> */}
+
+            <div>
             <br/>
             {wrangledPost.map((item)=>(
                 <div key={item.id}>
-                    <h3>Post Title: {item.post_title}</h3>
-                </div>
-            ))}
-            <br/>
-            {wrangledPostComment.map((commentItem)=> (
-                <div key={commentItem.id}>
-                    <h4>{commentItem.comment}</h4>
-                    <h5>By: {commentItem.author}</h5>
-                    <br/>
+                    <h3 className="title">{item.post_title}</h3>
                 </div>
             ))}
 
-            <form action={handleSubmit}>
+            <div className="container">
+            <form className="form-container"  action={handleSubmit}>
                 <label htmlFor="comment">Comment: </label>
-                <br/>
                 <textarea
-                    className="border-black text-black m-px rounded-md"
+                    className=""
                     type="text"
                     name="comment"
                     id="comment"
@@ -78,7 +75,7 @@ export default async function IdPage ({params}){
                 <br/>
                 <label htmlFor="author">Author: </label>
                 <input
-                    className="border-black"
+                    className=""
                     type="text"
                     name="author"
                     id="author"
@@ -87,10 +84,22 @@ export default async function IdPage ({params}){
                     />
                 <br/>
                 <button
-                    className="border-blue-400 border-8 m-2 hover:bg-blue-400 rounded-lg"
                     type="submit">
                     Submit Comment</button>
             </form>
+            </div>            
+            <br/>
+            <div className="comments-container"> 
+            {wrangledPostComment.map((commentItem)=> (
+                <div className="comment-box" key={commentItem.id}>
+                    <h4 className="comment">ߵ{commentItem.comment}ߴ</h4>
+                    <h5 className="author">✍️ By: {commentItem.author}</h5>
+                </div>
+            ))}
+            </div>
+            </div>
+
+            
 
             {/* Display the individual form */}
             {/* Display any comments on the post */}
