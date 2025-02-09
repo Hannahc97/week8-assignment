@@ -5,6 +5,11 @@ import DeleteButton from "../components/DeleteButton"
 // remember to add metadata for the page 
 // We need to be able to sort the posts by asc and desc order. Query strings!
 
+export const metadata = {
+    title: "Travel and Thoughts Posts",
+    description: "All travel posts",
+};
+
 export default async function PostsPage({searchParams}){
     const posts = await db.query(`SELECT * FROM posts`)
     console.log(posts)
@@ -26,10 +31,10 @@ export default async function PostsPage({searchParams}){
     return (
         <>
             <div>
-                <h1>Posts Page</h1>
+                <h1 className="text-center text-5xl mt-5 p-5">Posts Page</h1>
                 <br/>
-                <Link href={`/posts?sort=asc`}>A-Z </Link> |
-                <Link href={`/posts?sort=desc`}> Z-A</Link>
+                <Link  className="text-2xl ml-5" href={`/posts?sort=asc`}>A-Z </Link> |
+                <Link className="text-2xl" href={`/posts?sort=desc`}> Z-A</Link>
                 <br/>
                 {/* I need to get all posts from my database */}
                 {/* I need to render all of the posts */}

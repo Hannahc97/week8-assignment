@@ -6,7 +6,7 @@ export default function DeleteButton ({postId}){
 
     return (
         <>
-        <button className="border-2 rounded-md p-1 border-blue-500"
+        <button className="border-2 rounded-md p-1 bg-blue-500 mt-8 -mb-10"
         type="submit" 
         onClick={()=>handleDeletePost(postId)}>Delete Post</button>
         </>

@@ -7,6 +7,7 @@ import "./idpage.css"
 
 // Give your user some naviagtion controls
 // remember to add metadata for the page 
+
 // We need params to render the post data dunamically!
 
 export default async function IdPage ({params}){

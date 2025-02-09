@@ -8,6 +8,11 @@ import "./create-posts.css"
 // Give your user some naviagtion controls
 // remember to add metadata for the page 
 
+export const metadata = {
+    title: "Travel and Thoughts post form",
+    description: "Form to create a post",
+};
+
 export default function NewPostPage() {
     // I need to handle the submit of the posts form 
 
