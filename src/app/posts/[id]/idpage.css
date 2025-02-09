@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+
+}
+
+.form-container{
+    border: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+label{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+input {
+    border: solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 15lh;
+    height: 3lh;
+}
+
+textarea{
+    border: solid black;
+    padding: 10px;
+    border-radius: 10px;
+    width: 18lh;
+    height: 6lh;
+}
+
+button {
+    background-color: cornflowerblue;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: lightskyblue;
+}
+
+.comments-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.title{
+    text-align: center;
+    font-size: 2rem;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.author{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: rgb(211, 122, 20);
+}
+
+.comment-box{
+    border: solid;
+    margin: 10px;
+}

@@ -28,3 +28,7 @@
     - configure your DB connection
     - Test your DB connection, seed? Postman?
     - Create a very basic form with one input for testing 
+
+
+Resources 
+https://www.youtube.com/watch?v=8s4DK5PkRNQ&ab_channel=BrettWestwood-SoftwareEngineer
