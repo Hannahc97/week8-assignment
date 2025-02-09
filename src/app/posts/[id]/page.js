@@ -1,6 +1,6 @@
 import { db } from "@/app/utils/dbConnection"
 import { revalidatePath } from "next/cache";
-import Link from "next/link";
+// import Link from "next/link";
 import { redirect } from "next/navigation"
 
 
@@ -45,7 +45,7 @@ export default async function IdPage ({params}){
 
     return (
         <div>
-            <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link> | <Link href={"/new-post"}>Add Post</Link>
+
             <br/>
             <h1> Dynamic route for individual post </h1>
             <h2> Param: {postParams.id} </h2>

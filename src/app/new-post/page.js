@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache"
 import { db } from "../utils/dbConnection"
 import { redirect } from "next/navigation"
-import Link from "next/link"
+// import Link from "next/link"
 
 
 
@@ -25,7 +25,7 @@ export default function NewPostPage() {
 
     return (
         <>
-            <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link>
+            {/* <Link href={"/"}>Home</Link> | <Link href={"/posts"}>Posts</Link> */}
 
             <h1>A form to let the user add a New post</h1>
 
